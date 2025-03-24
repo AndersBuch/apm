@@ -17,7 +17,7 @@ jobs:
         with:
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
-          query: "SELECT average(duration) FROM Transaction WHERE appName = 'Express APM Demo' FACET name LIMIT 5 SINCE 1 week ago"
+          query: "SELECT average(duration) FROM Transaction WHERE appName = 'testApp' FACET name LIMIT 5 SINCE 1 week ago"
           output_type: json
           
       - name: Fetch error rate
@@ -26,7 +26,7 @@ jobs:
         with:
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
-          query: "SELECT percentage(count(*), WHERE error IS true) FROM Transaction WHERE appName = 'Express APM Demo' SINCE 1 week ago"
+          query: "SELECT percentage(count(*), WHERE error IS true) FROM Transaction WHERE appName = 'testApp' SINCE 1 week ago"
       
       - name: Generate markdown report
         run: |

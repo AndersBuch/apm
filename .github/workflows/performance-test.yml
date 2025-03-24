@@ -26,7 +26,7 @@ jobs:
             'use strict'
         
             exports.config = {
-            app_name: ['Express APM Demo - CI'],
+            app_name: ['testApp - CI'],
             license_key: '${{ secrets.NEW_RELIC_LICENSE_KEY }}',
             logging: {
                 level: 'info'
@@ -59,7 +59,7 @@ jobs:
         with:
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
-          query: "SELECT average(duration) FROM Transaction WHERE appName = 'Express APM Demo - CI' SINCE 5 minutes ago"
+          query: "SELECT average(duration) FROM Transaction WHERE appName = 'testApp - CI' SINCE 5 minutes ago"
           threshold: "500"
           operator: "below"
           

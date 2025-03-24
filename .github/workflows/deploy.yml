@@ -17,7 +17,7 @@ jobs:
         with:
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
-          query: "SELECT average(duration) FROM Transaction WHERE appName = 'Express APM Demo' SINCE 1 hour ago"
+          query: "SELECT average(duration) FROM Transaction WHERE appName = 'testApp' SINCE 1 hour ago"
           threshold: "300"
           operator: "below"
         continue-on-error: true
@@ -52,7 +52,7 @@ jobs:
         with:
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
-          app_name: 'Express APM Demo'
+          app_name: 'testApp'
           revision: ${{ github.sha }}
           user: ${{ github.actor }}
           description: 'Deployed to staging'
@@ -79,7 +79,7 @@ jobs:
         with:
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
-          app_name: 'Express APM Demo'
+          app_name: 'testApp'
           revision: ${{ github.sha }}
           user: ${{ github.actor }}
           description: 'Deployed to production'
