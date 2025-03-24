@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check recent performance metrics
         id: performance-check
-        uses: newrelic/newrelic-action@v1
+        uses: newrelic/deployment-marker-action@v2.3.0
         with:
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
@@ -48,7 +48,7 @@ jobs:
           # Your deployment steps here
       
       - name: Mark deployment in New Relic
-        uses: newrelic/deployment-marker-action@v1
+        uses: newrelic/deployment-marker-action@v2.3.0
         with:
           api_key: ${{ secrets.NEW_RELIC_API_KEY }}
           account_id: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
